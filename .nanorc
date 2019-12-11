@@ -1,0 +1,5 @@
+set linenumbers
+set tabsize 4
+
+# Allows click/selecting of text. However it disables scroll wheel when enabled
+#set mouse
