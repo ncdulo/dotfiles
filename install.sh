@@ -5,13 +5,20 @@
 # Source: http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/
 ############################
 
+
+#
+# WARNING: This script is not currently working. The symlinks generated are invalid.
+# NEEDFIX: I'll get to this someday. Or just continue manually linking my files. :)
+#
+
+
 ########## Variables
 
 dir=~/dev/dotfiles                    # dotfiles directory
 olddir=~/dev/dotfiles_old             # old dotfiles backup directory
 
 # list of files/folders to symlink in homedir
-files="bashrc vimrc zshrc"    
+files="bashrc zshrc nanorc vimrc xinitrc Xdefaults Xresources config/urxvt config/awesome/themes config/awesome/rc.lua"    
 
 ##########
 
@@ -28,8 +35,8 @@ echo "...done"
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
 for file in $files; do
     echo "Moving any existing dotfiles from ~ to $olddir"
-    mv ~/.$file ~/dotfiles_old/
+    mv -v ~/.$file ~/dotfiles_old/
     echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/.$file
+    ln -sv $dir/$file ~/.$file
 done
 
