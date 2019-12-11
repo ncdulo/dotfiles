@@ -102,7 +102,7 @@ export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # General
-alias ls="ls -lahp --color=auto"
+alias ls="ls -halp --color=auto"
 #alias cat="cat -n"
 alias mv="mv -v"
 alias cp="cp -v"
