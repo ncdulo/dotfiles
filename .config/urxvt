@@ -1,0 +1,8 @@
+URxvt.scrollBar_right: true
+URxvt.jumpScroll: false
+URxvt.urgentOnBell: true
+Urxvt.visualBell: true
+URxvt.scrollTtyOutput: false
+URxvt.scrollWithBuffer: true
+URxvt.scrollTtyKeypress: true
+URxvt.font: -*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*
