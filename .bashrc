@@ -16,4 +16,6 @@ fi
 
 
 # Put your fun stuff here.
-EDITOR=nano
+
+# No thank you, vim it up
+#EDITOR=nano
