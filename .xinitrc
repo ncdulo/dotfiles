@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# For non-fontconfig applications. Maybe we need this, maybe now
+# For non-fontconfig applications. Maybe we need this, maybe not
 # Just playing it safe
 xset fp rehash
 
