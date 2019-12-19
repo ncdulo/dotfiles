@@ -28,6 +28,8 @@ To manage the files, I keep this repository at `~/dev/dotfiles` and each file is
 ## Files Included
 
 ## TODO
-- [ ] Python installation script
+- [ ] Add Pathogen to vimrc
+- [ ] Revise vimrc to enable more Python IDE type features
+- [ ] Python installation script for dotfiles
 - [ ] Document included dotfiles
 
