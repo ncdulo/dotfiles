@@ -152,6 +152,12 @@ noremap <leader>w :bn<CR>
 " Toggle for Nerd Tree
 map <C-n> :NERDTreeToggle<CR>
 
+" Split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 " This unsets the last search pattern register by hitting RET
 nnoremap <CR> :noh<CR><CR>
 
