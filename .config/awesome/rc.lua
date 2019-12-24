@@ -271,8 +271,8 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
-    awful.key({ }, "Print", function () awful.spawn.with_shell("scrot -e 'mv $f ~/screenshots/ 2>/dev/null'") end),
-    awful.key({ modkey }, "Print", function () awful.spawn.with_shell("scrot -s -e 'mv $f ~/screenshots/ 2>/dev/null'") end),
+    awful.key({ }, "Print", function () awful.spawn.with_shell("maim ~/screenshots/$(date +%s).png") end),
+    awful.key({ "Shift" }, "Print", function () awful.spawn.with_shell("maim -s ~/screenshots/selection-$(date +%s).png") end),
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
