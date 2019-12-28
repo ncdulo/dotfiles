@@ -57,6 +57,10 @@ set wrapmargin=0
 " Visual indication for column 80
 set colorcolumn=80
 
+" Splits open to right or bottom. Just feels better this way.
+set splitbelow
+set splitright
+
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
