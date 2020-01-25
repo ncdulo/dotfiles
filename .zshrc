@@ -7,7 +7,7 @@ export ZSH=/home/ncdulo/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="candy"
+ZSH_THEME="xiong-chiamiov-plus"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -52,18 +52,12 @@ ZSH_THEME="candy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	alias-finder
 	auto-notify
 	colored-man-pages
-	command-not-found
-	dircycle
+	dirhistory
 	extract
-	frontend-search
 	git
-	git-prompt
-	systemadmin
 	timer
-	ubuntu
 )
 
 source $ZSH/oh-my-zsh.sh
