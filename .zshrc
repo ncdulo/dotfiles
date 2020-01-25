@@ -64,6 +64,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# `timer` plugin config
+export TIMER_FORMAT='[%d]'
+export TIMER_PRECISION=2
+
 # Nov 18, 2019
 # Add PHP Composer to PATH for laravel
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
