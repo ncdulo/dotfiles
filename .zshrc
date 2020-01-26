@@ -68,6 +68,9 @@ source $ZSH/oh-my-zsh.sh
 export TIMER_FORMAT='[%d]'
 export TIMER_PRECISION=2
 
+# Enable mouse wheel support in LESS. Specifically for scrolling manpages
+export LESS='--mouse --wheel-lines=3'
+
 # Nov 18, 2019
 # Add PHP Composer to PATH for laravel
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
