@@ -122,4 +122,6 @@ alias pkgsum="sudo qlop -c | grep total"
 
 alias fixmyperms="sh /home/ncdulo/dev/bin/fix_www_perms.sh"
 alias myaliases="cat /home/ncdulo/.zshrc | grep alias"
-# Dropping a comment here just so we have a "blank" line at EOF
+
+# Do androids dream of sodomized cows?
+fortune -s mythical_linux off/mythical_linux | cowsay -f sodomized -n
