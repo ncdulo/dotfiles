@@ -608,6 +608,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 autorun = true
 autorunApps =
 {
+	"xrandr --output DVI-I-1 --mode 1920x1080 --refresh 100",
 	"xset fp+ /usr/share/fonts/terminus",
 	"xset fp+ /usr/share/fonts/inconsolata",
 	"xset fp rehash",
