@@ -1,8 +1,17 @@
-URxvt.scrollBar_right: true
-URxvt.jumpScroll: false
 URxvt.urgentOnBell: true
 Urxvt.visualBell: true
+
+URxvt.scrollBar_right: true
+URxvt.jumpScroll: false
 URxvt.scrollTtyOutput: false
 URxvt.scrollWithBuffer: true
 URxvt.scrollTtyKeypress: true
+
 URxvt.font: -*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*
+
+URxvt.saveLines: 8192
+
+URxvt.perl-ext-common: default,matcher
+
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
