@@ -15,8 +15,8 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
 require("awful.hotkeys_popup.keys")
 
 -- Load my custom widgets
-local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
-local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
+--local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
+--local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 
 
 -- {{{ Error handling
@@ -249,8 +249,8 @@ awful.screen.connect_for_each_screen(function(s)
             --mykeyboardlayout,
 			-- volume bar needs fixing. its there, but the color ain't!
 			--volumebar_widget({ main_color = '#af13f7', mute_color = '#ff0000', margins = 4, shape = 'rounded_bar' }),
-			ram_widget(),
-			cpu_widget(),
+			--ram_widget(),
+			--cpu_widget(),
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
