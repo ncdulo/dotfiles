@@ -74,7 +74,9 @@ export TIMER_PRECISION=2
 
 # Nov 18, 2019
 # Add PHP Composer to PATH for laravel
-export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+# Feb 9 2020 - This is no longer relevant. No longer using composer.
+#export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
