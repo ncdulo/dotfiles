@@ -112,7 +112,7 @@ alias mv="mv -v"
 alias cp="cp -v"
 alias rm="rm -iv"
 alias pst="ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head -n 11"
-alias burnme="sensors -f | grep -i ^core"
+alias burnme="sensors -f | grep °"
 
 # Gentoo-specific
 alias mynotes="sh /home/ncdulo/dev/bin/notes-menu.sh"
