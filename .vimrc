@@ -36,6 +36,10 @@ if has('gui_running')
 	set guioptions-=L " Remove LH scroll bar
 endif
 
+" Session related options
+set ssop-=options    " do not store global and local values in a session
+set ssop-=folds      " do not store folds
+
 " Reload files changed outside of Vim
 set autoread
 
