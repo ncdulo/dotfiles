@@ -113,6 +113,7 @@ alias cp="cp -v"
 alias rm="rm -iv"
 alias pst="ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head -n 11"
 alias burnme="sensors -f | grep °"
+alias cpufreqs="cat /proc/cpuinfo | grep 'cpu MHz'"
 
 # Gentoo-specific
 alias mynotes="sh /home/ncdulo/dev/bin/notes-menu.sh"
