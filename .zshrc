@@ -112,7 +112,7 @@ alias mv="mv -v"
 alias cp="cp -v"
 alias rm="rm -iv"
 alias pst="ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head -n 11"
-alias burnme="sensors -f | grep ° | cat -n"
+alias burnme="sensors -f | grep ° | cat -n | head -n 9"
 alias cpufreqs="cat /proc/cpuinfo | grep 'cpu MHz' | cat -n"
 
 # Gentoo-specific
