@@ -68,9 +68,11 @@ source $ZSH/oh-my-zsh.sh
 export TIMER_FORMAT='[%d]'
 export TIMER_PRECISION=2
 
-# Enable mouse wheel support in LESS. Specifically for scrolling manpages
-# TODO: Fix these arguments so they no longer conflict with 'git diff'
-#export LESS='--mouse --wheel-lines=3'
+# Customize 'less' with mouse wheel support.
+# The '-r' option is meant so certain control characters will function
+# properly in the terminal. Without it, I get garbled output when using
+# 'git diff'. If future problems arise, try '-R' instead.
+export LESS='-r --mouse --wheel-lines=3'
 
 # Nov 18, 2019
 # Add PHP Composer to PATH for laravel
