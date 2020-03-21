@@ -135,5 +135,12 @@ alias pkgsum="sudo qlop -c | grep total"
 alias fixmyperms="sh /home/ncdulo/dev/bin/fix_www_perms.sh"
 alias myaliases="cat /home/ncdulo/.zshrc | grep alias"
 
+
+# Python virtualenvwrapper configuration
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/dev/projects
+source ~/.local/bin/virtualenvwrapper.sh
+
+
 # Do androids dream of sodomized cows?
 fortune -s mythical_linux off/mythical_linux | cowsay -f sodomized -n
