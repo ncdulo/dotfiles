@@ -132,6 +132,7 @@ alias edcworld="sudo emerge --depclean -a"
 alias einst="sudo emerge -atv"
 alias pkgsum="sudo qlop -c | grep total"
 
+alias portop="/home/ncdulo/dev/projects/portop/portop"
 alias fixmyperms="sh /home/ncdulo/dev/bin/fix_www_perms.sh"
 alias myaliases="cat /home/ncdulo/.zshrc | grep alias"
 
