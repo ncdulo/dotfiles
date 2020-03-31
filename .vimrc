@@ -87,6 +87,7 @@ set cursorline
 
 " Better command-line completion
 set wildmenu
+set wildmode=full
 
 " Use case insensitive search unless we specifically use captial letters
 set ignorecase
@@ -153,6 +154,11 @@ au BufRead,BufNewFile *.des set syntax=levdes
 " Keybinds
 " -----------------------------------------------
 let mapleader = ","
+
+" <leader>ss|sr for session save/restore using global session directory
+let g:session_dir = '~/dev/vim_sessions'
+exec 'nnoremap <leader>ss :mks! ' . g:session_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
+exec 'nnoremap <leader>sr :so ' . g:session_dir. '/*.vim<C-D><BS><BS><BS><BS><BS>'
 
 " <leader>q and <leader>w bound to prev/next buffer
 noremap <leader>q :bp<CR>
