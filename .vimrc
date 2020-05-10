@@ -34,6 +34,7 @@ if has('gui_running')
 	set guioptions-=T " Remove tool bar
 	set guioptions-=r " Remove RH scroll bar
 	set guioptions-=L " Remove LH scroll bar
+	set guioptions-=e " Use TUI tabs rather than GTK style
 endif
 
 " Session related options
@@ -133,6 +134,9 @@ set cmdheight=2
  
 " Display line numbers on the left
 set number
+
+" Enable spellchecking
+set spell
  
 " Quickly time out on keycodes, but never time out on mappings
 "set notimeout ttimeout ttimeoutlen=200
