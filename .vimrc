@@ -137,6 +137,7 @@ set number
 
 " Enable spellchecking
 set spell
+set spelllang=en
  
 " Quickly time out on keycodes, but never time out on mappings
 "set notimeout ttimeout ttimeoutlen=200
