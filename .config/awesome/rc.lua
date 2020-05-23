@@ -587,29 +587,11 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Autorun programs
--- Oct 27 2019, setting autorun to false
--- startup apps are now handled in the
--- /etc/X11/xinit/xinitrc.d/99-misc
--- file for a DE/WM agnostic hack
--- Note: xinit script not working. see note
---   in that file for more information.
-autorun = true
-autorunApps =
-{
-	"xrandr --output DVI-I-1 --mode 1920x1080 --refresh 100",
-	"xset fp+ /usr/share/fonts/terminus",
-	"xset fp+ /usr/share/fonts/inconsolata",
-	"xset fp rehash",
-	"numlockx on",
-	"parcellite",
-	"pasystray",
-	"xcalib -d :0 /home/ncdulo/ASUS_VG248QE_Nvidia.icm",
-	"xscreensaver -nosplash",
-	"sh /home/ncdulo/dev/bin/process_xscreensaver.sh"
-	--"more commands here"
-}
-if autorun then
-	for app = 1, #autorunApps do
-		awful.util.spawn(autorunApps[app])
-	end
-end
+--
+-- The previous `awful.util.spawn` method is deprecated and caused certain
+-- programs to fail, namely the `xset`. Take this as an opportunity to clean
+-- up and use a separate script to handle the autorun.
+--
+-- This has the benefit of being able to only launch certain commands if there
+-- is not already a running instance of that program.
+awful.spawn.with_shell("~/.config/awesome/autorun.sh")
