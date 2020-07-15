@@ -117,6 +117,11 @@ alias pst="ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head -n 11"
 alias burnme="sensors -f | grep ° | cat -n | head -n 9"
 alias cpufreqs="cat /proc/cpuinfo | grep 'cpu MHz' | cat -n"
 
+# Uptimed - Keep track of your high scores!
+alias up="uprecords"
+alias upm="uprecords -M"
+alias ups="uprecords -s"
+
 # Gentoo-specific
 alias mynotes="sh /home/ncdulo/dev/bin/notes-menu.sh"
 alias equses="equery uses"
@@ -132,6 +137,7 @@ alias edcworld="sudo emerge --depclean -a"
 alias einst="sudo emerge -atv"
 alias pkgsum="sudo qlop -c | grep total"
 
+# Misc. Custom, system-specific mostly.
 alias portop="/home/ncdulo/dev/projects/portop/portop"
 alias fixmyperms="sh /home/ncdulo/dev/bin/fix_www_perms.sh"
 alias myaliases="cat /home/ncdulo/.zshrc | grep alias"
