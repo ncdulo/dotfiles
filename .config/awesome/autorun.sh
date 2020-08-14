@@ -14,7 +14,7 @@ function run {
 }
 
 # Setup programs, these fire off once and that's it
-xrandr --output DVI-I-1 --mode 1920x1080 --refresh 100
+xrandr --output DVI-I-1 --mode 1920x1080 --refresh 120
 xcalib -d :0 /home/ncdulo/ASUS_VG248QE_Nvidia.icm
 xset fp+ /usr/share/fonts/terminus
 xset fp+ /usr/share/fonts/inconsolata
