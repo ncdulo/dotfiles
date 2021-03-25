@@ -151,11 +151,11 @@ alias myaliases="cat /home/ncdulo/.zshrc | grep alias"
 #
 # Fahrenheit to Celcius
 f2c() {
-	python -c "print(round((5/9) * ($1 - 32), 2))"
+	python -c "print(str(round((5/9) * ($1 - 32), 2)) + '°C')"
 }
 # Celcius to Fahrenheit
 c2f() {
-	python -c "print(round((9/5) * $1 + 32, 2))"
+	python -c "print(str(round((9/5) * $1 + 32, 2)) + '°F')"
 }
 
 # Python virtualenvwrapper configuration
