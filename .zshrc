@@ -142,6 +142,21 @@ alias portop="/home/ncdulo/dev/projects/portop/portop"
 alias fixmyperms="sh /home/ncdulo/dev/bin/fix_www_perms.sh"
 alias myaliases="cat /home/ncdulo/.zshrc | grep alias"
 
+# Custom functions for quality of life
+#
+# These conversions can definitely be done in Bash. However my
+# quick attempt to do so did not work. And Python did. So Python wins.
+# We use functions because we can't pass an argument through a command
+# alias.
+#
+# Fahrenheit to Celcius
+f2c() {
+	python -c "print(round((5/9) * ($1 - 32), 2))"
+}
+# Celcius to Fahrenheit
+c2f() {
+	python -c "print(round((9/5) * $1 + 32, 2))"
+}
 
 # Python virtualenvwrapper configuration
 export WORKON_HOME=$HOME/.virtualenvs
