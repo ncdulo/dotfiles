@@ -24,6 +24,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+import os
 from subprocess import call
 from typing import List  # noqa: F401
 
@@ -35,6 +36,7 @@ from libqtile.utils import guess_terminal
 mod = "mod4"
 #terminal = guess_terminal()
 terminal = "/usr/bin/urxvt"
+home = os.path.expanduser('~')
 
 keys = [
     # Switch between windows
@@ -91,6 +93,14 @@ keys = [
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 1 +5%")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 1 -5%")),
     Key([], "XF86Calculator", lazy.spawn("speedcrunch")),
+
+    # Screenshotters
+    Key([], "Print",
+            lazy.spawn("scrot '%s.png' -e 'mv $f " + home + "/screenshots/'")
+        ),
+    Key(["mod1"], "Print",
+            lazy.spawn("scrot -s 'selection-%s.png' -e 'mv $f " + home + "/screenshots/'")
+        ),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -205,7 +215,7 @@ focus_on_window_activation = "smart"
 # Hooks
 @hook.subscribe.startup_once
 def startup_once():
-    call('/home/ncdulo/.config/awesome/autorun.sh')
+    call(home + '/.config/awesome/autorun.sh')
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
