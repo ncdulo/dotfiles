@@ -101,6 +101,8 @@ keys = [
     Key(["mod1"], "Print",
             lazy.spawn("scrot -s 'selection-%s.png' -e 'mv $f " + home + "/screenshots/'")
         ),
+
+    Key([mod], "Escape", lazy.spawn("xscreensaver-command -lock")),
 ]
 
 groups = [Group(i) for i in "123456789"]
