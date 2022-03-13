@@ -38,6 +38,55 @@ mod = "mod4"
 terminal = "/usr/bin/urxvt"
 home = os.path.expanduser('~')
 
+group_names = [
+        "1", "2", "3",
+        "4", "5", "6",
+        "7", "8", "9",
+    ]
+
+group_labels = [
+        "term", "chat", "www",
+        "dev", "media", "game",
+        "uranus", "neptune", "pluto",
+    ]
+
+group_exclusives = [
+        False, False, False,
+        False, False, False,
+        False, False, False,
+    ]
+
+group_persists = [
+        True, True, True,
+        True, True, True,
+        True, True, True,
+    ]
+
+group_inits = [
+        True, True, True,
+        True, True, True,
+        True, True, True,
+    ]
+
+group_layouts = [
+        "ratiotile", "ratiotile", "tile",
+        "columns", "max", "max",
+        "coulmns", "columns", "columns",
+    ]
+
+group_matches = [
+        None,
+        [Match(wm_class=["discord", "slack"]), ],
+        [Match(wm_class=["firefox", "Navigator"]), ],
+        [Match(wm_class=["geany",]), ],
+        [Match(wm_class=["vlc", "clementine", "smplayer", "MPlayer",
+            "mpv", "Rhythmbox", "strawberry", "Strawberry",]), ],
+        [Match(wm_class=["Steam", "Wine",]), ],
+        None,
+        None,
+        None,
+    ]
+
 keys = [
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
@@ -105,22 +154,29 @@ keys = [
     Key([mod], "Escape", lazy.spawn("xscreensaver-command -lock")),
 ]
 
-groups = [Group(i) for i in "123456789"]
+groups = []
+# Populate our groups using the lists defined at the beginning
+# of this source file
+for i in range(len(group_names)):
+    groups.append(
+            Group(
+                name=group_names[i],
+                matches=group_matches[i],
+                exclusive=group_exclusives[i],
+                layout=group_layouts[i].lower(),
+                persist=group_persists[i],
+                init=group_inits[i],
+                label=group_labels[i],))
 
+# Assign keybinds per group
 for i in groups:
     keys.extend([
-        # mod1 + letter of group = switch to group
+        # mod + letter of group = switch to group
         Key([mod], i.name, lazy.group[i.name].toscreen(),
             desc="Switch to group {}".format(i.name)),
-
-        # mod1 + shift + letter of group = switch to & move focused window to group
-        #Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
-        #    desc="Switch to & move focused window to group {}".format(i.name)),
-        # Or, use below if you prefer not to switch to that group.
-        # # mod1 + shift + letter of group = move focused window to group
-         Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-             desc="move focused window to group {}".format(i.name)),
-    ])
+        # mod + shift + letter of group = move focused window to group
+        Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
+            desc="Move focused window to group {}".format(i.name)), ])
 
 layout_style = {
         'margin': 0,
