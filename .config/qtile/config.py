@@ -41,45 +41,52 @@ home = os.path.expanduser('~')
 def get_weather():
     return check_output(home + "/dev/bin/qtile_weather.sh").decode('utf-8').strip()
 
+# Group names
 group_names = [
         "1", "2", "3",
         "4", "5", "6",
         "7", "8", "9",
     ]
 
+# Group display names
 group_labels = [
         "term", "chat", "www",
         "dev", "media", "game",
         "uranus", "neptune", "pluto",
     ]
 
+# Allow only matched windows in this group?
 group_exclusives = [
         False, False, False,
         False, False, False,
         False, False, False,
     ]
 
+# Should this group stay alive with no member windows?
 group_persists = [
         True, True, True,
         True, True, True,
         True, True, True,
     ]
 
+# Is this group alive when qtile starts?
 group_inits = [
         True, True, True,
         True, True, True,
         True, True, True,
     ]
 
+# Default layout for each group
 group_layouts = [
         "ratiotile", "ratiotile", "tile",
         "columns", "max", "max",
         "coulmns", "columns", "columns",
     ]
 
+# Match objects assigned to groups
 group_matches = [
         None,
-        [Match(wm_class=["discord", "slack"]), ],
+        [Match(wm_class=["discord", "hexchat", "slack"]), ],
         [Match(wm_class=["firefox", "Navigator"]), ],
         [Match(wm_class=["geany",]), ],
         [Match(wm_class=["vlc", "clementine", "smplayer", "MPlayer",
