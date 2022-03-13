@@ -24,15 +24,17 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+from subprocess import call
 from typing import List  # noqa: F401
 
-from libqtile import bar, layout, widget
+from libqtile import bar, extension, hook, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 mod = "mod4"
-terminal = guess_terminal()
+#terminal = guess_terminal()
+terminal = "/usr/bin/urxvt"
 
 keys = [
     # Switch between windows
@@ -101,6 +103,8 @@ for i in groups:
 
 layouts = [
     layout.Columns(border_focus_stack='#d75f5f'),
+    layout.RatioTile(),
+    layout.Tile(),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -116,7 +120,8 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font='sans',
+    #font='sans',
+    font='terminus',
     fontsize=12,
     padding=3,
 )
@@ -124,23 +129,33 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
+        top=bar.Bar(
+            [
+                widget.CurrentLayoutIcon(scale=0.65),
+                widget.GroupBox(),
+                widget.Spacer(length=bar.STRETCH),
+                widget.Systray(),
+                widget.Clock(format='%Y-%m-%d %a %H:%M'),
+            ],
+            24
+        ),
         bottom=bar.Bar(
             [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
+                widget.CurrentLayout(font='terminus'),
+                widget.TextBox("::"),
                 widget.Prompt(),
-                widget.WindowName(),
+                widget.TaskList(),
                 widget.Chord(
                     chords_colors={
                         'launch': ("#ff0000", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                widget.Systray(),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
-                widget.QuickExit(),
+                widget.TextBox("indev config", name="default"),
+                #widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+                #widget.Systray(),
+                #widget.Clock(format='%Y-%m-%d %a %H:%M %p'),
+                #widget.QuickExit(),
             ],
             24,
         ),
@@ -174,6 +189,11 @@ floating_layout = layout.Floating(float_rules=[
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
+
+# Hooks
+@hook.subscribe.startup_once
+def startup_once():
+    call('/home/ncdulo/.config/awesome/autorun.sh')
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
