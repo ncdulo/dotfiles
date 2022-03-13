@@ -25,7 +25,7 @@
 # SOFTWARE.
 
 import os
-from subprocess import call
+from subprocess import call, check_output
 from typing import List  # noqa: F401
 
 from libqtile import bar, extension, hook, layout, widget
@@ -37,6 +37,9 @@ mod = "mod4"
 #terminal = guess_terminal()
 terminal = "/usr/bin/urxvt"
 home = os.path.expanduser('~')
+
+def get_weather():
+    return check_output(home + "/dev/bin/qtile_weather.sh").decode('utf-8').strip()
 
 group_names = [
         "1", "2", "3",
@@ -218,6 +221,13 @@ screens = [
                 widget.CurrentLayoutIcon(scale=0.65),
                 widget.GroupBox(),
                 widget.Spacer(length=bar.STRETCH),
+                # Do we even have key chords/need this?
+                widget.Chord(
+                    chords_colors={
+                        'launch': ("#ff0000", "#ffffff"),
+                    },
+                    name_transform=lambda name: name.upper(),
+                ),
                 widget.Systray(),
                 widget.TextBox("::"),
                 widget.Clock(format='%Y-%m-%d %a %H:%M'),
@@ -230,12 +240,10 @@ screens = [
                 widget.TextBox("::"),
                 widget.Prompt(),
                 widget.TaskList(),
-                widget.Chord(
-                    chords_colors={
-                        'launch': ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
+                #widget.Spacer(length=bar.STRETCH),
+                widget.GenPollText(
+                    func=get_weather,
+                    update_interval=1800),
             ],
             24,
         ),
