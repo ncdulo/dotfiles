@@ -229,39 +229,52 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+sensor_widget_defaults = {
+        "threshold": 178.0,
+        "foreground_alert": "#d75f5f",
+        "metric": False,
+        "update_interval": 3,
+    }
+
+top_bar = [
+        widget.CurrentLayoutIcon(scale=0.65),
+        widget.GroupBox(inactive="#808080"),
+        widget.Spacer(length=bar.STRETCH),
+        widget.ThermalSensor(tag_sensor="Core 1", **sensor_widget_defaults),
+        widget.TextBox("|"),
+        widget.ThermalSensor(tag_sensor="Core 2", **sensor_widget_defaults),
+        widget.TextBox("|"),
+        widget.ThermalSensor(tag_sensor="Core 3", **sensor_widget_defaults),
+        widget.TextBox("|"),
+        widget.ThermalSensor(tag_sensor="Core 4", **sensor_widget_defaults),
+        widget.Spacer(length=bar.STRETCH),
+        # Do we even have key chords/need this?
+        widget.Chord(
+            chords_colors={
+                'launch': ("#ff0000", "#ffffff"),
+            },
+            name_transform=lambda name: name.upper(),
+        ),
+        widget.Systray(),
+        widget.TextBox("::"),
+        widget.Clock(format='%Y-%m-%d %a %H:%M'),
+    ]
+
+bottom_bar = [
+        widget.CurrentLayout(),
+        widget.TextBox("::"),
+        widget.Prompt(),
+        widget.TaskList(),
+        #widget.Spacer(length=bar.STRETCH),
+        widget.GenPollText(
+            func=get_weather,
+            update_interval=1800),
+    ]
+
 screens = [
     Screen(
-        top=bar.Bar(
-            [
-                widget.CurrentLayoutIcon(scale=0.65),
-                widget.GroupBox(),
-                widget.Spacer(length=bar.STRETCH),
-                # Do we even have key chords/need this?
-                widget.Chord(
-                    chords_colors={
-                        'launch': ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.Systray(),
-                widget.TextBox("::"),
-                widget.Clock(format='%Y-%m-%d %a %H:%M'),
-            ],
-            24
-        ),
-        bottom=bar.Bar(
-            [
-                widget.CurrentLayout(font='terminus'),
-                widget.TextBox("::"),
-                widget.Prompt(),
-                widget.TaskList(),
-                #widget.Spacer(length=bar.STRETCH),
-                widget.GenPollText(
-                    func=get_weather,
-                    update_interval=1800),
-            ],
-            24,
-        ),
+        top=bar.Bar(top_bar, 24),
+        bottom=bar.Bar(bottom_bar, 24),
     ),
 ]
 
