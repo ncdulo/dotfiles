@@ -78,8 +78,8 @@ group_inits = [
 
 # Default layout for each group
 group_layouts = [
-        "ratiotile", "ratiotile", "tile",
-        "columns", "max", "max",
+        "ratiotile", "ratiotile", "monadtall",
+        "monadtall", "max", "max",
         "coulmns", "columns", "columns",
     ]
 
@@ -123,8 +123,13 @@ keys = [
     Key([mod, "control"], "j", lazy.layout.grow_down(),
         desc="Grow window down"),
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
+
+    # Used with the monad{tall,wide} layouts
+    Key([mod], "i", lazy.layout.grow(), desc="Grow focused window"),
+    Key([mod], "m", lazy.layout.shrink(), desc="Shrink focused window"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-    Key([mod], "m", lazy.layout.maximize()),
+    Key([mod], "o", lazy.layout.maximize(), desc="Grow focused window to max size"),
+    Key([mod], "space", lazy.layout.flip()),
 
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
@@ -136,7 +141,7 @@ keys = [
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Switch to next layout"),
-    Key([mod], "space", lazy.prev_layout(), desc="Switch to previous layout"),
+    Key([mod, "shift"], "Tab", lazy.prev_layout(), desc="Switch to previous layout"),
 
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
@@ -199,7 +204,10 @@ layouts = [
     layout.Columns(border_focus_stack='#d75f5f', **layout_style),
     layout.RatioTile(**layout_style),
     layout.Tile(**layout_style),
+    layout.MonadTall(**layout_style),
+    layout.MonadWide(**layout_style),
     layout.Max(**layout_style),
+    layout.Zoomy(column_width=420, **layout_style),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
