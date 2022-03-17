@@ -238,7 +238,7 @@ sensor_widget_defaults = {
 
 top_bar = [
         widget.CurrentLayoutIcon(scale=0.65),
-        widget.GroupBox(inactive="#808080"),
+        widget.GroupBox(disable_drag=True, inactive="#808080"),
         widget.Spacer(length=bar.STRETCH),
         widget.ThermalSensor(tag_sensor="Core 1", **sensor_widget_defaults),
         widget.TextBox("|"),
@@ -263,9 +263,14 @@ top_bar = [
 bottom_bar = [
         widget.CurrentLayout(),
         widget.TextBox("::"),
-        widget.Prompt(),
-        widget.TaskList(),
+        widget.Prompt(bell_style="visual"),
+        widget.TaskList(max_title_width=200),
         #widget.Spacer(length=bar.STRETCH),
+        widget.CheckUpdates(
+            custom_command="EIX_LIMIT=0 eix -u# --world",
+            display_format="Potential Updates: {updates}",
+            update_interval=3600),
+        widget.TextBox("::"),
         widget.GenPollText(
             func=get_weather,
             update_interval=1800),
