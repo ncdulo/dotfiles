@@ -230,7 +230,7 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 sensor_widget_defaults = {
-        "threshold": 178.0,
+        "threshold": 180.0,
         "foreground_alert": "#d75f5f",
         "metric": False,
         "update_interval": 3,
@@ -256,8 +256,8 @@ top_bar = [
             name_transform=lambda name: name.upper(),
         ),
         widget.Systray(),
-        widget.TextBox("::"),
-        widget.Clock(format='%Y-%m-%d %a %H:%M'),
+        #widget.Clock(format='%Y-%m-%d %a %H:%M'),
+        widget.Clock(format='%a %b %d %Y %H:%M'),
     ]
 
 bottom_bar = [
