@@ -50,9 +50,9 @@ group_names = [
 
 # Group display names
 group_labels = [
-        "term", "chat", "www",
-        "dev", "media", "game",
-        "uranus", "neptune", "pluto",
+        "1:term", "2:chat", "3:www",
+        "4:dev", "5:media", "6:game",
+        "7:uranus", "8:neptune", "9:pluto",
     ]
 
 # Allow only matched windows in this group?
@@ -237,16 +237,10 @@ sensor_widget_defaults = {
     }
 
 top_bar = [
-        widget.CurrentLayoutIcon(scale=0.65),
         widget.GroupBox(disable_drag=True, inactive="#808080"),
-        widget.Spacer(length=bar.STRETCH),
-        widget.ThermalSensor(tag_sensor="Core 1", **sensor_widget_defaults),
-        widget.TextBox("|"),
-        widget.ThermalSensor(tag_sensor="Core 2", **sensor_widget_defaults),
-        widget.TextBox("|"),
-        widget.ThermalSensor(tag_sensor="Core 3", **sensor_widget_defaults),
-        widget.TextBox("|"),
-        widget.ThermalSensor(tag_sensor="Core 4", **sensor_widget_defaults),
+        widget.TextBox("::"),
+        widget.Prompt(bell_style="visual"),
+        widget.WindowName(),
         widget.Spacer(length=bar.STRETCH),
         # Do we even have key chords/need this?
         widget.Chord(
@@ -263,9 +257,14 @@ top_bar = [
 bottom_bar = [
         widget.CurrentLayout(),
         widget.TextBox("::"),
-        widget.Prompt(bell_style="visual"),
-        widget.TaskList(max_title_width=200),
-        #widget.Spacer(length=bar.STRETCH),
+        widget.ThermalSensor(tag_sensor="Core 1", **sensor_widget_defaults),
+        widget.TextBox("|"),
+        widget.ThermalSensor(tag_sensor="Core 2", **sensor_widget_defaults),
+        widget.TextBox("|"),
+        widget.ThermalSensor(tag_sensor="Core 3", **sensor_widget_defaults),
+        widget.TextBox("|"),
+        widget.ThermalSensor(tag_sensor="Core 4", **sensor_widget_defaults),
+        widget.Spacer(length=bar.STRETCH),
         widget.CheckUpdates(
             custom_command="EIX_LIMIT=0 eix -u# --world",
             display_format="Potential Updates: {updates}",
