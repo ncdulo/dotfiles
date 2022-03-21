@@ -237,9 +237,16 @@ sensor_widget_defaults = {
     }
 
 top_bar = [
-        widget.GroupBox(disable_drag=True, inactive="#808080"),
+        widget.Prompt(
+            bell_style="visual",
+            cursor_color="#ffffff",
+            cursorblink=0.8,
+            prompt="$ "),
+        widget.GroupBox(
+            disable_drag=True,
+            hide_unused=True,
+            inactive="#808080"),
         widget.TextBox("::"),
-        widget.Prompt(bell_style="visual"),
         widget.WindowName(),
         widget.Spacer(length=bar.STRETCH),
         # Do we even have key chords/need this?
@@ -257,6 +264,8 @@ top_bar = [
 bottom_bar = [
         widget.CurrentLayout(),
         widget.TextBox("::"),
+        widget.CPU(format="CPU Load {load_percent}%"),
+        widget.TextBox("::"),
         widget.ThermalSensor(tag_sensor="Core 1", **sensor_widget_defaults),
         widget.TextBox("|"),
         widget.ThermalSensor(tag_sensor="Core 2", **sensor_widget_defaults),
@@ -264,6 +273,8 @@ bottom_bar = [
         widget.ThermalSensor(tag_sensor="Core 3", **sensor_widget_defaults),
         widget.TextBox("|"),
         widget.ThermalSensor(tag_sensor="Core 4", **sensor_widget_defaults),
+        widget.TextBox("::"),
+        widget.Net(format="{down}↓ {up}↑", interface="enp4s0"),
         widget.Spacer(length=bar.STRETCH),
         widget.CheckUpdates(
             custom_command="EIX_LIMIT=0 eix -u# --world",
