@@ -37,6 +37,7 @@ mod = "mod4"
 #terminal = guess_terminal()
 terminal = "/usr/bin/urxvt"
 home = os.path.expanduser('~')
+wallpaper = '/dev/dotfiles/nuclear-cheers.png'
 
 def get_weather():
     return check_output(home + "/dev/bin/qtile_weather.sh").decode('utf-8').strip()
@@ -325,6 +326,7 @@ focus_on_window_activation = "smart"
 @hook.subscribe.startup_once
 def startup_once():
     call(home + '/.config/awesome/autorun.sh')
+    call('feh --bg-scale ' + home + wallpaper)
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
