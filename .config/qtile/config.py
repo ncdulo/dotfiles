@@ -278,8 +278,9 @@ bottom_bar = [
         widget.Net(format="{down}↓ {up}↑", interface="enp4s0"),
         widget.Spacer(length=bar.STRETCH),
         widget.CheckUpdates(
-            custom_command="EIX_LIMIT=0 eix -u# --world",
-            display_format="Potential Updates: {updates}",
+            custom_command="emerge -uDNpq --nospinner --with-bdeps=y @world",
+            display_format="Updates: {updates}",
+            no_update_string="Updates: 0",
             update_interval=3600),
         widget.TextBox("::"),
         widget.GenPollText(
