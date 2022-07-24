@@ -52,7 +52,7 @@ group_names = [
 # Group display names
 group_labels = [
         "1:term", "2:chat", "3:www",
-        "4:dev", "5:media", "6:game",
+        "4:dev", "5:media", "6:jupiter",
         "7:uranus", "8:neptune", "9:pluto",
     ]
 
@@ -80,7 +80,7 @@ group_inits = [
 # Default layout for each group
 group_layouts = [
         "ratiotile", "ratiotile", "monadtall",
-        "monadtall", "max", "max",
+        "monadtall", "monadtall", "monadtall",
         "coulmns", "columns", "columns",
     ]
 
