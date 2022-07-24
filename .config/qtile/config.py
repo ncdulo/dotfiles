@@ -93,7 +93,7 @@ group_matches = [
         [Match(wm_class=["vlc", "clementine", "smplayer", "MPlayer",
             "mpv", "Rhythmbox", "strawberry", "Strawberry",]), ],
         [Match(wm_class=["Steam", "Wine",]), ],
-        None,
+        [Match(wm_class=["paradox launcher",]), ],
         None,
         None,
     ]
